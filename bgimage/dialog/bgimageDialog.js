@@ -7,15 +7,15 @@ CKEDITOR.dialog.add('bgImageDialog', function(editor) {
         onOk: function() {
             var dialog = this;
             var imageURL = dialog.getValueOf('tab1', 'imageURL');
-            var reapeat = dialog.getValueOf('tab1', 'reapeat');
+            var repeat = dialog.getValueOf('tab1', 'repeat');
             var pos = dialog.getValueOf('tab1', 'pos')
-            var blentMode = dialog.getValueOf('tab1', 'blend')
+            var blendMode = dialog.getValueOf('tab1', 'blend')
             var attachment = dialog.getValueOf('tab1', 'attachment')
             var css = 'body {';
             css += 'background-image:url(' + imageURL + ');';
-            css += 'background-repeat:' + reapeat + ';';
+            css += 'background-repeat:' + repeat + ';';
             css += 'background-position:' + pos + ';';
-            css += 'background-blent-mod:' + blentMode + ';';
+            css += 'background-blend-mode:' + blendMode + ';';
             css += 'background-attachment:' + attachment + ';';
             css += '}';
             console.log(css);
@@ -55,15 +55,15 @@ CKEDITOR.dialog.add('bgImageDialog', function(editor) {
                         align: 'right',
                         children: [{
                                 type: 'select',
-                                id: 'reapeat',
-                                label: 'Reapeat',
+                                id: 'repeat',
+                                label: 'Repeat',
                                 items: [
                                     ['repeat'],
                                     ['no-repeat'],
                                     ['repeat-x'],
                                     ['repeat-y'],
                                 ],
-                                'default': 'reapeat'
+                                'default': 'repeat'
                             }, {
                                 type: 'select',
                                 id: 'attachment',
@@ -85,7 +85,7 @@ CKEDITOR.dialog.add('bgImageDialog', function(editor) {
                     children: [{
                         type: 'select',
                         id: 'blend',
-                        label: 'Blen Mode',
+                        label: 'Blend Mode',
                         items: [
                             ['normal'],
                             ['multiply'],
