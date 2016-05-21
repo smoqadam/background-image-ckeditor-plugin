@@ -4,7 +4,7 @@
  * Under MIT License
  */
 CKEDITOR.plugins.add('bgimage',{
-    lang:['en','fa'],
+    lang:['en','fa','ru'],
     init:function (editor) {
         editor.addCommand('bgimage',new CKEDITOR.dialogCommand('bgImageDialog'));
         editor.ui.addButton(editor.lang.bgimage.bgImageTitle,{
