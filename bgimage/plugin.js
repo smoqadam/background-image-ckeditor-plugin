@@ -8,8 +8,8 @@ CKEDITOR.plugins.add('bgimage',{
     icons: 'abbr',
     init:function (editor) {
         editor.addCommand('bgimage',new CKEDITOR.dialogCommand('bgImageDialog'));
-        editor.ui.addButton('Background image',{
-            'label':editor.lang.bgimage.labelName,
+        editor.ui.addButton(editor.lang.bgimage.bgImageTitle,{
+            'label':editor.lang.bgimage.bgImageTitle,
             'command':'bgimage',
             'toolbar':'insert',
             icon: this.path + 'icons/bg.png'
