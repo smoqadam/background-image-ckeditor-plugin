@@ -1,6 +1,6 @@
 CKEDITOR.dialog.add('bgImageDialog', function(editor) {
     return {
-        title: 'Background image',
+        title: editor.lang.bgimage.bgImageTitle,
         resizable: CKEDITOR.DIALOG_RESIZE_BOTH,
         minWidth: 500,
         minHeight: 200,
@@ -18,13 +18,12 @@ CKEDITOR.dialog.add('bgImageDialog', function(editor) {
             css += 'background-blend-mode:' + blendMode + ';';
             css += 'background-attachment:' + attachment + ';';
             css += '}';
-            console.log(css);
             editor.document.appendStyleText(css)
         },
         contents: [{
             id: 'tab1',
-            label: 'First Tab',
-            title: 'First Tab Title',
+            label: editor.lang.bgimage.bgImageTitle,
+            title: editor.lang.bgimage.bgImageTitle,
             accessKey: 'Q',
             elements: [{
                 type: 'vbox',
@@ -36,7 +35,7 @@ CKEDITOR.dialog.add('bgImageDialog', function(editor) {
                         styles :'',
                         children: [{
                             type: 'text',
-                            label: 'Image URL',
+                            label: editor.lang.bgimage.imageUrl,
                             id: 'imageURL',
                         }, {
                             type: 'button',
@@ -56,7 +55,7 @@ CKEDITOR.dialog.add('bgImageDialog', function(editor) {
                         children: [{
                                 type: 'select',
                                 id: 'repeat',
-                                label: 'Repeat',
+                                label: editor.lang.bgimage.repeat,
                                 items: [
                                     ['repeat'],
                                     ['no-repeat'],
@@ -67,7 +66,7 @@ CKEDITOR.dialog.add('bgImageDialog', function(editor) {
                             }, {
                                 type: 'select',
                                 id: 'attachment',
-                                label: 'Attachment',
+                                label: editor.lang.bgimage.attachment,
                                 items: [
                                     ['scroll'],
                                     ['fixed'],
@@ -85,7 +84,7 @@ CKEDITOR.dialog.add('bgImageDialog', function(editor) {
                     children: [{
                         type: 'select',
                         id: 'blend',
-                        label: 'Blend Mode',
+                        label: editor.lang.bgimage.blendMode,
                         items: [
                             ['normal'],
                             ['multiply'],
@@ -102,7 +101,7 @@ CKEDITOR.dialog.add('bgImageDialog', function(editor) {
                         'default': 'normal'
                     }, {
                         type: 'select',
-                        label: 'Position',
+                        label: editor.lang.bgimage.position,
                         id: 'pos',
                         align: 'right',
                         items: [
