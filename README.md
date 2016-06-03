@@ -7,9 +7,9 @@ by this plugin you can set background image in your CKEditor
 
 Copy `bgimage` folder to `ckeditor/plugins/` directory
 
-add the following line to `config.js` : 
+add the following line to `config.js` :
 
 ```javascript
  config.extraPlugins = 'bgimage';
+ config.allowedContent = 'div{*}'; // this is important
 ```
-
