@@ -5,20 +5,29 @@ CKEDITOR.dialog.add('bgImageDialog', function(editor) {
         minWidth: 500,
         minHeight: 200,
         onOk: function() {
+            contents = editor.document.getBody().getHtml();
+            matches = contents.match(/<div style="(.*)">((.|\n)*?)<\/div>/)
+            // styled div already exists
+            if(matches){
+                contents = matches[2];
+            }
+
             var dialog = this;
             var imageURL = dialog.getValueOf('tab1', 'imageURL');
             var repeat = dialog.getValueOf('tab1', 'repeat');
             var pos = dialog.getValueOf('tab1', 'pos')
             var blendMode = dialog.getValueOf('tab1', 'blend')
             var attachment = dialog.getValueOf('tab1', 'attachment')
-            var css = 'body {';
-            css += 'background-image:url(' + imageURL + ');';
-            css += 'background-repeat:' + repeat + ';';
-            css += 'background-position:' + pos + ';';
-            css += 'background-blend-mode:' + blendMode + ';';
-            css += 'background-attachment:' + attachment + ';';
-            css += '}';
-            editor.document.appendStyleText(css)
+            var div = '<div class="AA" style="';
+            div += 'background-image:url(' + imageURL + ');';
+            div += 'background-repeat:' + repeat + ';';
+            div += 'background-position:' + pos + ';';
+            div += 'background-blend-mode:' + blendMode + ';';
+            div += 'background-attachment:' + attachment + ';';
+            div += '">';
+            div += contents;
+            div += '</div>'
+            editor.setData(div);
         },
         contents: [{
             id: 'tab1',
@@ -44,7 +53,7 @@ CKEDITOR.dialog.add('bgImageDialog', function(editor) {
                             hidden: true,
                             filebrowser: 'tab1:imageURL'
                         }]
-                    }] 
+                    }]
             }, {
                 type: 'vbox',
                 padding: 0,
@@ -72,8 +81,8 @@ CKEDITOR.dialog.add('bgImageDialog', function(editor) {
                                     ['fixed'],
                                     ['local'],
                                 ]
-                            }] 
-                    }] 
+                            }]
+                    }]
             }, {
                 type: 'vbox',
                 padding: 0,
