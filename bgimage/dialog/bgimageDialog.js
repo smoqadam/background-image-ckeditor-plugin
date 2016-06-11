@@ -18,12 +18,15 @@ CKEDITOR.dialog.add('bgImageDialog', function(editor) {
             var pos = dialog.getValueOf('tab1', 'pos')
             var blendMode = dialog.getValueOf('tab1', 'blend')
             var attachment = dialog.getValueOf('tab1', 'attachment')
+            var width = dialog.getValueOf('tab1', 'width');
+            var height = dialog.getValueOf('tab1', 'height');
             var div = '<div class="AA" style="';
             div += 'background-image:url(' + imageURL + ');';
             div += 'background-repeat:' + repeat + ';';
             div += 'background-position:' + pos + ';';
             div += 'background-blend-mode:' + blendMode + ';';
             div += 'background-attachment:' + attachment + ';';
+            div += 'background-size:' + width +' '+height + ';';
             div += '">';
             div += contents;
             div += '</div>'
@@ -126,7 +129,57 @@ CKEDITOR.dialog.add('bgImageDialog', function(editor) {
                         'default': 'left top'
                     }, ]
                 }]
-            }]
+            },{
+                            type: 'vbox',
+                            padding: 0,
+                            children: [{
+                                    type: 'hbox',
+                                    widths: ['150px', '150px'],
+                                    align: 'right',
+                                    children: [{
+                                            type: 'select',
+                                            id: 'repeat',
+                                            label: editor.lang.bgimage.repeat,
+                                            items: [
+                                                ['repeat'],
+                                                ['no-repeat'],
+                                                ['repeat-x'],
+                                                ['repeat-y'],
+                                            ],
+                                            'default': 'repeat'
+                                        }, {
+                                            type: 'select',
+                                            id: 'attachment',
+                                            label: editor.lang.bgimage.attachment,
+                                            items: [
+                                                ['scroll'],
+                                                ['fixed'],
+                                                ['local'],
+                                            ]
+                                        }]
+                                }]
+                        }, {
+                            type: 'vbox',
+                            padding: 0,
+                            children: [{
+                                type: 'hbox',
+                                widths: ['150px', '150px'],
+                                align: 'right',
+                                children: [{
+                                    type: 'text',
+                                    id: 'width',
+                                    label: editor.lang.bgimage.bgWidth,
+                                    width:'50px',
+
+                                }, {
+                                    type: 'text',
+                                    label: editor.lang.bgimage.bgHeight,
+                                    id: 'height',
+                                    align: 'right',
+                                    width:'50px'
+                                }]
+                            }]
+                        }]
         }],
     }
 })

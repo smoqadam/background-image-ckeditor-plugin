@@ -4,5 +4,7 @@ CKEDITOR.plugins.setLang('bgimage','fa',{
 	repeat	     : 'تکرار',
 	attachment   : 'ضمیمه',
 	blendMode    : 'حالت لایه',
-	position	 : 'موقعیت'
+	position	 : 'موقعیت',
+	bgWidth    : '(eg : 20px) عرض',
+	bgHeight   : '(eg : 20px) ارتفاع'
 })
